@@ -1,2 +1,5 @@
 # set windows line endings for guide (HTML doc generated from Word)
 /public/docs/**.html text eol=crlf
+/public/docs/**.htm text eol=crlf
+/docs/docs/**.html text eol=crlf
+/docs/docs/**.htm text eol=crlf
