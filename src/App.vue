@@ -2,6 +2,7 @@
     <div id="app">
         <div id="side-menu">
             <aside class="menu">
+                {{mainUrl}}
 
                 <ul class="menu-list">
                     <router-link to="/home">Home</router-link>
@@ -33,7 +34,7 @@
         <div id="main">
             <div id="content-wrapper">
                 <intro v-if="$route.path === '/home'" ></intro>
-                <iframe v-if="$route.path !== '/home'" :src="docUrl" />
+                <iframe ref="docIframe" v-if="$route.path !== '/home'" :src="docUrl" />
             </div>
 
         </div>
@@ -53,12 +54,28 @@ export default {
     },
     data: function() {
         return {
+            timerId: null,
+            mainUrl: "",
             docUrl: "./docs/Admin%20Guide.htm"
         };
     },
+    created() {
+        this.refresh();
+
+    },
     methods: {
         refresh() {
+            if (this.timerId) {
+                clearInterval(this.timerId);
+            }
+            var timerId = setInterval(() => {
+                debugger
+                var iFrame = this.$refs["docIframe"];
+                var url = iFrame.contentWindow.location.href;
+                var hashUrl = url.split("#")[1];
+                location.href = location.href + "?ref=" + hashUrl;
 
+            }, 1500);
 
         }
     },
