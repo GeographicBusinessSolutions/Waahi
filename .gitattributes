@@ -1,5 +1,5 @@
 # set windows line endings for guide (HTML doc generated from Word)
-/public/docs/**.html text eol=auto
-/public/docs/**.htm text eol=auto
-/docs/docs/**.html text eol=auto
-/docs/docs/**.htm text eol=auto
+/docs/guides/**.html text eol=auto
+/docs/guides/**.htm text eol=auto
+/docs/guides/WABAdmin_files/* text eol=auto
+/docs/guides/Deployment_files/* text eol=auto
